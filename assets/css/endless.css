@@ -45,68 +45,6 @@ body {
 	z-index: -1;
 }
 
-p {
-	position: absolute;
-	font-family: "Roboto", sans-serif;
-	font-size: 40px;
-	top: -35px;
-	left: 30px;
-	z-index: 1;
-}
-
-#levels {
-	position: absolute;
-	top: 193px;
-	z-index: 3;
-}
-
-#left {
-	display: inline-block;
-	position: relative;
-	width: 515px;
-	height: 488px;
-	left: 410px;
-}
-
-#right {
-	display: inline-block;
-	position: relative;
-	width: 515px;
-	height: 488px;
-	left: 475px;
-}
-
-.level {
-	position: relative;
-	background: white;
-	width: 515px;
-	height: 60px;
-}
-
-.level, p {
-	cursor: pointer;
-}
-
-#level02, #level08 {
-	top: 26px;
-}
-
-#level03, #level09 {
-	top: 51.4px;
-}
-
-#level04, #level10 {
-	top: 77px;
-}
-
-#level05, #level11 {
-	top: 102.4px;
-}
-
-#level06, #level12 {
-	top: 127.5px;
-}
-
 #nav {
 	position: absolute;
 	top: 530px;
@@ -137,9 +75,7 @@ p {
 }
 
 #setup {
-	display: none;
 	position: absolute;
-	background: rgba(0,0,0,0.9);
 	width: 1100px;
 	height: 500px;
 	left: 21.3%;
@@ -214,9 +150,8 @@ p {
 }
 
 #start_nav {
-	display: none;
 	position: absolute;
-	top: 521px;
+	top: 505px;
 	left: 1000px;
 }
 

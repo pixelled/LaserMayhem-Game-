@@ -10,6 +10,12 @@ html {
   }
 }
 
+@media (min-width: 1400px){
+  body {
+    zoom: 0.75;
+  }
+}
+
 @media (min-width: 1500px){
   body {
     zoom: 0.8;

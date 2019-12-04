@@ -1357,40 +1357,22 @@ var last_update = new Date().getTime();
 		var trapper = new Trapper(new Vector(w, h / 4), new Vector(1, 2));
 		var smasher = new Smasher(new Vector(w, h / 4), new Vector(1, 2), new Vector(1, 0));
 		var spiker = new Spiker(new Vector(w, h / 4), new Vector(1, 2), new Vector(1, 0));
-		if (level == "level01") {
-			var first = new Space("one-player", ship_one, [asteroid_01, asteroid_02, new SmallAsteroid(new Vector(w * 1 / 3, h * Math.random()), new Vector(-3, 1), new Vector(2, 2), 10)], [asteroid_03, new Asteroid(new Vector(w * Math.random(), h * 3 / 4), new Vector(-2, 2), new Vector(1, -1), 10)]);
-		}
-		else if (level == "level02") {
-			var first = new Space("one-player", ship_one, [normal_ship,
-														   new Asteroid(new Vector(-w, h * 3 / 4), new Vector(-2, 2), new Vector(1, -1), 10),
-														   new Asteroid(new Vector(w * 1 / 3, h * 2 / 3), new Vector(1, 6), new Vector(2, -7), 10)],
-														  [new NormalShip(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
-														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
-														   new NormalShip(new Vector(w, h * Math.random()), new Vector(2, -1)),
-														   new Sniper(new Vector(w, h * Math.random()), new Vector(3, 1)),
-														   new NormalShip(new Vector(-w * Math.random(), -h), new Vector(-1, -2)),
-														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
-														   new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
-		else if (level == "level03") {
-			var first = new Space("one-player", ship_one, [new Destroyer(new Vector(-w, h * Math.random()), new Vector(0.5, 3)),
-														   new Asteroid(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-2, 2), new Vector(1, -1), 10),
-														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(2, -7), 10)],
-														  [new NormalShip(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
-														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
-														   new Destroyer(new Vector(w, h * Math.random()), new Vector(-1, -2)),
-														   new Destroyer(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
-														   new Destroyer(new Vector(w, h * Math.random()), new Vector(-3, 1)),
-														   new Sniper(new Vector(w, h * Math.random()), new Vector(3, 1)),
-														   new Destroyer(new Vector(-w * Math.random(), -h), new Vector(-1, -2)),
-														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
-														   new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
-		else if (level == "level04") {
-			var first = new Space("one-player", ship_one, [new Spread(new Vector(-w, h * Math.random()), new Vector(-1, -0.5)),
+		var first = new Space("one-player", ship_one, [asteroid_01, asteroid_02, new NormalShip(new Vector(-w, h * Math.random()), new Vector(-2, -3))],
+		[asteroid_03, normal_ship, new Asteroid(new Vector(-w, h * 3 / 4), new Vector(-2, 2), new Vector(1, -1), 10), new Asteroid(new Vector(w * 1 / 3, h * 2 / 3), new Vector(1, 6), new Vector(2, -7), 10),
+		new NormalShip(new Vector(-w, h * Math.random()), new Vector(-2, -3)), new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
+		new NormalShip(new Vector(w, h * Math.random()), new Vector(2, -1)), new Sniper(new Vector(w, h * Math.random()), new Vector(3, 1)),new NormalShip(new Vector(-w * Math.random(), -h), new Vector(-1, -2)),
+		new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10), new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1)), new Destroyer(new Vector(-w, h * Math.random()), new Vector(0.5, 3)),
+		new Asteroid(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-2, 2), new Vector(1, -1), 10),new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(2, -7), 10),
+		new NormalShip(new Vector(-w, h * Math.random()), new Vector(-2, -3)),new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
+		new Destroyer(new Vector(w, h * Math.random()), new Vector(-1, -2)),new Destroyer(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
+		new Destroyer(new Vector(w, h * Math.random()), new Vector(-3, 1)),
+		new Sniper(new Vector(w, h * Math.random()), new Vector(3, 1)),
+		new Destroyer(new Vector(-w * Math.random(), -h), new Vector(-1, -2)),
+		new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
+		new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1)),new Spread(new Vector(-w, h * Math.random()), new Vector(-1, -0.5)),
 														   new Sniper(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-2, 2)),
-														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(2, -7), 10)],
-														  [new Sniper(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
+														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(2, -7), 10),
+														  new Sniper(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
 														   new Spread(new Vector(w, h * Math.random()), new Vector(-1, -2)),
 														   new Destroyer(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
@@ -1398,13 +1380,10 @@ var last_update = new Date().getTime();
 														   new Sniper(new Vector(w, h * Math.random()), new Vector(3, 1)),
 														   new Destroyer(new Vector(-w * Math.random(), -h), new Vector(-1, -2)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
-														   new Spread(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
-		else if (level == "level05") {
-			var first = new Space("one-player", ship_one, [new Spread(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
+														   new Spread(new Vector(-w * Math.random(), -h), new Vector(1, 1)),new Spread(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
 														   new Skimmer(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-0.5, 0.9)),
-														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(1, -3.5), 10)],
-														  [new Skimmer(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
+														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(1, -3.5), 10),
+														  new Skimmer(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
 														   new Destroyer(new Vector(w, h * Math.random()), new Vector(-1, -2)),
 														   new Spread(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
@@ -1412,27 +1391,16 @@ var last_update = new Date().getTime();
 														   new Sniper(new Vector(w, h * Math.random()), new Vector(1.5, 0.5)),
 														   new Skimmer(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
-														   new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
-		else if (level == "level06") {
-			var first = new Space("one-player", ship_one, [trapper], []);
-		}
-		else if (level == "level07") {
-			var first = new Space("one-player", ship_one, [smasher,
-														   new Spiker(new Vector(w, h * Math.random()), new Vector(-0.5, -1), new Vector(1, 0)),
-														   new Spread(new Vector(-w, h * Math.random()), new Vector(-1.5, 0.3))],
-														  [spiker,
-														   new Smasher(new Vector(w, h * Math.random()), new Vector(0.8, 2.4), new Vector(1, 0)),
+														   new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1)),
+														   trapper,smasher,new Spiker(new Vector(w, h * Math.random()), new Vector(-0.5, -1), new Vector(1, 0)),
+														   new Spread(new Vector(-w, h * Math.random()), new Vector(-1.5, 0.3)),spiker,new Smasher(new Vector(w, h * Math.random()), new Vector(0.8, 2.4), new Vector(1, 0)),
 														   new Spread(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
 														   new Spiker(new Vector(w, h * Math.random()), new Vector(-0.5, -1), new Vector(1, 0)),
-														   new Smasher(new Vector(-w, h * Math.random()), new Vector(-1, 2), new Vector(1, 0))],
-														   new Spiker(new Vector(w, h * Math.random()), new Vector(-0.5, -1), new Vector(1, 0)));
-		}
-		else if (level == "level08") {
-			var first = new Space("one-player", ship_one, [new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
+														   new Smasher(new Vector(-w, h * Math.random()), new Vector(-1, 2), new Vector(1, 0)),
+														   new Spiker(new Vector(w, h * Math.random()), new Vector(-0.5, -1), new Vector(1, 0)),new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
 														   new Skimmer(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-0.5, 0.9)),
-														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(1, -3.5), 10)],
-														  [new Skimmer(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
+														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(1, -3.5), 10),
+														  new Skimmer(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
 														   new Tracker(new Vector(w, h * Math.random()), new Vector(-1, -2)),
 														   new Spread(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
@@ -1440,18 +1408,11 @@ var last_update = new Date().getTime();
 														   new Sniper(new Vector(w, h * Math.random()), new Vector(1.5, 0.5)),
 														   new Skimmer(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
-														   new Tracker(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
-		else if (level == "level09") {
-			var first = new Space("one-player", ship_one, [new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5))], []);
-			first.dark = true;
-			first.draw = false;
-		}
-		else if (level == "level10") {
-			var first = new Space("one-player", ship_one, [new Spread(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
+														   new Tracker(new Vector(-w * Math.random(), -h), new Vector(1, 1)),new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
+														   new Spread(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
 														   new Skimmer(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-0.5, 0.9)),
-														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(1, -3.5), 10)],
-														  [new Overlord(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
+														   new Asteroid(new Vector(w * 1 / 9, h * Math.random()), new Vector(1, 6), new Vector(1, -3.5), 10),
+														  new Overlord(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
 														   new Tracker(new Vector(w, h * Math.random()), new Vector(-1, -2)),
 														   new Spread(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
@@ -1459,28 +1420,23 @@ var last_update = new Date().getTime();
 														   new Sniper(new Vector(w, h * Math.random()), new Vector(1.5, 0.5)),
 														   new Skimmer(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
-														   new Overlord(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
-		else if (level == "level11") {
-			var first = new Space("one-player", ship_one, [new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
+														   new Overlord(new Vector(-w * Math.random(), -h), new Vector(1, 1)),
+														   new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
 														   new Sniper(new Vector(-w * Math.random(), h * 1 / 2), new Vector(-0.5, 0.9)),
-														   new NormalShip(new Vector(w * Math.random(), h * 1 / 2), new Vector(-1, -2))],
-														  [new Sniper(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
+														   new NormalShip(new Vector(w * Math.random(), h * 1 / 2), new Vector(-1, -2)),
+														  new Sniper(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
 														   new Skimmer(new Vector(w, h * Math.random()), new Vector(-1, -2)),
 														   new Spread(new Vector(-w, h * Math.random()), new Vector(4, -0.5)),
 														   new Tracker(new Vector(w, h * Math.random()), new Vector(-3, 1)),
 														   new Sniper(new Vector(w, h * Math.random()), new Vector(1.5, 0.5)),
 														   new Skimmer(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Spread(new Vector(w * Math.random(), h), new Vector(1, -1)),
-														   new Trapper(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-			first.draw = false;
-		}
-		else {
-			var first = new Space("one-player", ship_one, [new Skimmer(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
+														   new Trapper(new Vector(-w * Math.random(), -h), new Vector(1, 1)),
+														   new Skimmer(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Asteroid(new Vector(-w, h * 3 / 4), new Vector(-2, 2), new Vector(1, -1), 10),
-														   new Asteroid(new Vector(w * 1 / 3, h * 2 / 3), new Vector(1, 6), new Vector(2, -7), 10)],
-														  [new Sniper(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
+														   new Asteroid(new Vector(w * 1 / 3, h * 2 / 3), new Vector(1, 6), new Vector(2, -7), 10),
 														   new SuperSniper(new Vector(w * Math.random(), h), new Vector(1, 2)),
+														  new Sniper(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
 														   new Tracker(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
 														   new NormalShip(new Vector(w, h * Math.random()), new Vector(2, -1)),
@@ -1493,7 +1449,6 @@ var last_update = new Date().getTime();
 														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
 														   new Overlord(new Vector(-w * Math.random(), -h), new Vector(-0.5, -1)),
 														   new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
-		}
 		first.createFrame();
 		$("#resume_img").click(function() {
 			$("#pause").fadeToggle("fast");
