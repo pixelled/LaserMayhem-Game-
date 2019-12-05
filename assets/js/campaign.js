@@ -498,18 +498,18 @@ class Playership extends Body {
 	}
 
 	move() {
-		if ((keysPressed[code('up')]) || (keysPressed[code('W')])) {
+		if (keysPressed[code('W')]) {
 			this.vel.add(this.dir);
 		}
 		else {
 			this.vel.mul_k(0.96);
 		}
 
-		if ((keysPressed[code('left')]) || (keysPressed[code('A')])) {
+		if (keysPressed[code('A')]) {
 			this.dir.rotate(-0.08);
 		}
 
-		if ((keysPressed[code('right')]) || (keysPressed[code('D')])) {
+		if (keysPressed[code('D')]) {
 			this.dir.rotate(0.08);
 		}
 
@@ -589,18 +589,18 @@ class SpreadPlayer extends Playership {
 	}
 
 	move() {
-		if ((keysPressed[code('up')]) || (keysPressed[code('W')])) {
+		if (keysPressed[code('W')]) {
 			this.vel.add(this.dir);
 		}
 		else {
 			this.vel.mul_k(0.99);
 		}
 
-		if ((keysPressed[code('left')]) || (keysPressed[code('A')])) {
+		if (keysPressed[code('A')]) {
 			this.dir.rotate(-0.08);
 		}
 
-		if ((keysPressed[code('right')]) || (keysPressed[code('D')])) {
+		if (keysPressed[code('D')]) {
 			this.dir.rotate(0.08);
 		}
 
