@@ -4,6 +4,10 @@ html {
   overflow: hidden;
 }
 
+body {
+  margin: 0 auto;
+}
+
 @media (min-width: 1200px){
   body {
     zoom: 0.66667;
@@ -26,6 +30,16 @@ html {
   body {
     zoom: 1;
   }
+}
+
+#container {
+  position: absolute;
+}
+
+#game {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
 }
 
 .title {

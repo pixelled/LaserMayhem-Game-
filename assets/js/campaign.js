@@ -44,7 +44,6 @@ $(function() {
 	spiker_img.src = "assets/img/spiker.png";
 	tracker_img.src = "assets/img/tracker.png";
 	overlord_img.src = "assets/img/overlord.png";
-	annihilator_img.src = "assets/img/annihilator.png";
 
 	$("#back_img").hover(function() {
 		$("#back").css("background", "#438DCB");
@@ -305,15 +304,14 @@ class Space {
 		if (!this.objects.length) {
 			$("#complete").fadeIn(1000);
 			setTimeout(function() {
-			//	window.location.href = "campaign.html";
-				location.reload();
+				window.location.href = "campaign.html";
 			}, 2000);
 		}
 		
 		if (this.ship instanceof DeadShip) {
 			$("#failed").fadeIn(1000);
 			setTimeout(function() {
-				location.reload();
+				window.location.href = "campaign.html";
 			}, 1500);
 		}
 
@@ -715,6 +713,28 @@ class DirectPlayer extends Playership {
 }
 
 class DeadShip extends Playership {
+	move() {
+		return;
+	}
+
+	checkLive() {
+		return true;
+	}
+
+	drawShip() {
+		return;
+	}
+
+	drawHealth() {
+		return;
+	}
+
+	check() {
+		return;
+	}
+}
+
+class TestShip extends Playership {
 	move() {
 		return;
 	}
@@ -1342,7 +1362,18 @@ var last_update = new Date().getTime();
 	$("#start_game").click(function() {
 		$(".container").css("display", "none");
 		$("#game").css("visibility", "visible");
-		console.log(choice);
+		var ship_one = new TestShip(new Vector(w / 2, h / 2), new Vector(0, -0.3));
+		var first = new Space("display", ship_one, [normal_ship,
+														   new Asteroid(new Vector(-w, h * 3 / 4), new Vector(-2, 2), new Vector(1, -1), 10),
+														   new Asteroid(new Vector(w * 1 / 3, h * 2 / 3), new Vector(1, 6), new Vector(2, -7), 10)],
+														  [new NormalShip(new Vector(-w, h * Math.random()), new Vector(-2, -3)),
+														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-2, -0.5), 10),
+														   new NormalShip(new Vector(w, h * Math.random()), new Vector(2, -1)),
+														   new Sniper(new Vector(w, h * Math.random()), new Vector(3, 1)),
+														   new NormalShip(new Vector(-w * Math.random(), -h), new Vector(-1, -2)),
+														   new Asteroid(new Vector(w * Math.random(), h), new Vector(3, 4), new Vector(-3, 0.1), 10),
+														   new Sniper(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
+		first.createFrame();
 		if (choice == "ab")
 			var ship_one = new Playership(new Vector(w / 2, h / 2), new Vector(0, -0.3));
 		else if (choice == "cd")
@@ -1443,7 +1474,12 @@ var last_update = new Date().getTime();
 														   new Tracker(new Vector(-w * Math.random(), -h), new Vector(1, 1))]);
 		}
 		else if (level == "level09") {
-			var first = new Space("one-player", ship_one, [new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5))], []);
+			var first = new Space("one-player", ship_one, [new Tracker(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5))], 
+														  [new Spread(new Vector(-w, h * Math.random()), new Vector(0.5, 1.5)),
+														   new Sniper(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
+														  spiker,
+														   new Sniper(new Vector(-w, h * Math.random()), new Vector(-1, -1.5)),
+														   new Sniper(new Vector(-w, h * Math.random()), new Vector(-1, -1.5))]);
 			first.dark = true;
 			first.draw = false;
 		}
